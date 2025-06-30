@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -7,8 +8,10 @@ import ResumeForm from '@/components/resume-form';
 import ResumePreview from '@/components/resume-preview';
 import KeywordSuggester from '@/components/keyword-suggester';
 import { Button } from '@/components/ui/button';
-import { LayoutDashboard, MoveUpRight } from 'lucide-react';
+import { LayoutDashboard, LogOut, MoveUpRight } from 'lucide-react';
 import Link from 'next/link';
+import AuthGuard from '@/components/auth-guard';
+import { useAuth } from '@/contexts/auth-context';
 
 const initialResumeData: ResumeData = {
   name: 'Jane Doe',
@@ -38,9 +41,10 @@ const initialResumeData: ResumeData = {
   skills: ['React', 'Node.js', 'TypeScript', 'Project Management', 'Agile Methodologies', 'CI/CD'],
 };
 
-export default function BuilderPage() {
+function BuilderContent() {
   const [resumeData, setResumeData] = useState<ResumeData>(initialResumeData);
-
+  const { logout } = useAuth();
+  
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-sm">
@@ -50,11 +54,15 @@ export default function BuilderPage() {
             <h1 className="font-headline text-2xl font-bold">CareerLeap</h1>
           </Link>
           <div className="flex items-center gap-4">
-            <Button asChild>
+            <Button asChild variant="outline">
               <Link href="/dashboard">
                 <LayoutDashboard className="mr-2 h-4 w-4" />
                 Dashboard
               </Link>
+            </Button>
+            <Button onClick={logout}>
+              <LogOut className="mr-2 h-4 w-4" />
+              Logout
             </Button>
           </div>
         </div>
@@ -80,4 +88,12 @@ export default function BuilderPage() {
       </footer>
     </div>
   );
+}
+
+export default function BuilderPage() {
+  return (
+    <AuthGuard allowedRoles={['student']}>
+      <BuilderContent />
+    </AuthGuard>
+  )
 }

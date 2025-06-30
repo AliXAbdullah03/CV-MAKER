@@ -1,3 +1,5 @@
+
+'use client';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,9 +14,14 @@ import {
   Upload,
   UserCheck,
   Video,
+  LogOut,
 } from 'lucide-react';
+import AuthGuard from '@/components/auth-guard';
+import { useAuth } from '@/contexts/auth-context';
 
-export default function DashboardPage() {
+function DashboardContent() {
+  const { user, logout } = useAuth();
+  
   const historyItems = [
     { type: 'WET Request', date: '2023-10-26', professional: 'John Smith', status: 'Completed' },
     { type: 'Mock Interview', date: '2023-10-20', professional: 'Jane Doe', status: 'Completed' },
@@ -35,10 +42,15 @@ export default function DashboardPage() {
             <h1 className="font-headline text-2xl font-bold">CareerLeap</h1>
           </Link>
           <div className="flex items-center gap-4">
+            <span className="text-sm text-muted-foreground hidden md:inline">Welcome, {user?.username}!</span>
             <Button asChild>
               <Link href="/builder">
                 Resume Builder <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
+            </Button>
+            <Button variant="outline" onClick={logout} size="icon" className='h-10 w-10'>
+              <LogOut className="h-4 w-4" />
+              <span className="sr-only">Logout</span>
             </Button>
           </div>
         </div>
@@ -165,4 +177,12 @@ export default function DashboardPage() {
       </footer>
     </div>
   );
+}
+
+export default function DashboardPage() {
+    return (
+        <AuthGuard allowedRoles={['student']}>
+            <DashboardContent />
+        </AuthGuard>
+    )
 }

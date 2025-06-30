@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from 'react';
@@ -30,8 +31,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import AuthGuard from '@/components/auth-guard';
+import { useAuth } from '@/contexts/auth-context';
 
-export default function HRDashboardPage() {
+function HRDashboardContent() {
+  const { user, logout } = useAuth();
+
   const requests = [
     { id: 1, type: 'WET Request', student: 'Alex Johnson', date: '2023-11-05', status: 'Pending' },
     { id: 2, type: 'Live Mock Interview', student: 'Maria Garcia', date: '2023-11-08', status: 'Pending' },
@@ -72,22 +77,22 @@ export default function HRDashboardPage() {
                 <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                   <Avatar className="h-9 w-9">
                     <AvatarImage src="https://placehold.co/100x100.png" alt="HR Professional" data-ai-hint="person face" />
-                    <AvatarFallback>JD</AvatarFallback>
+                    <AvatarFallback>{user?.username.substring(0,2).toUpperCase()}</AvatarFallback>
                   </Avatar>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                   <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">Jane Doe</p>
-                    <p className="text-xs leading-none text-muted-foreground">jane.doe@hr.com</p>
+                    <p className="text-sm font-medium leading-none">{user?.username}</p>
+                    <p className="text-xs leading-none text-muted-foreground">{user?.username}@hr.com</p>
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem><User className="mr-2" /> Profile</DropdownMenuItem>
                 <DropdownMenuItem><Settings className="mr-2" /> Settings</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem><LogOut className="mr-2" /> Log out</DropdownMenuItem>
+                <DropdownMenuItem onClick={logout}><LogOut className="mr-2" /> Log out</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -332,4 +337,12 @@ export default function HRDashboardPage() {
       </main>
     </div>
   );
+}
+
+export default function HRDashboardPage() {
+    return (
+        <AuthGuard allowedRoles={['hr']}>
+            <HRDashboardContent />
+        </AuthGuard>
+    )
 }

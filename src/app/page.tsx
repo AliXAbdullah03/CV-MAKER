@@ -1,9 +1,10 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { MoveUpRight, ArrowRight, Star, FilePlus, Sparkles, Eye, CheckCircle } from 'lucide-react';
+import { MoveUpRight, ArrowRight, Star, FilePlus, Sparkles, Eye, CheckCircle, LogIn } from 'lucide-react';
 
 export default function HomePage() {
   const features = [
@@ -79,8 +80,8 @@ export default function HomePage() {
           </Link>
           <div className="flex items-center gap-4">
             <Button asChild>
-              <Link href="/dashboard">
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
+              <Link href="/login">
+                Login <LogIn className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
@@ -98,7 +99,7 @@ export default function HomePage() {
                 Create a professional, ATS-friendly resume in minutes. CareerLeap's AI-powered tools help you stand out and get hired faster.
               </p>
               <Button size="lg" asChild>
-                <Link href="/dashboard">
+                <Link href="/login">
                   Create My Resume Now <ArrowRight className="ml-2" />
                 </Link>
               </Button>
@@ -215,7 +216,7 @@ export default function HomePage() {
             <p className="mt-4 text-lg text-muted-foreground">Start building your professional resume today for free.</p>
             <div className="mt-8">
                 <Button size="lg" asChild>
-                    <Link href="/dashboard">
+                    <Link href="/login">
                         Get Started for Free <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                 </Button>

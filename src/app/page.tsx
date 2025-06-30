@@ -90,7 +90,16 @@ export default function HomePage() {
 
       <main className="flex-1">
         <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary via-background to-background -z-10"></div>
+        <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden bg-background">
+              <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 via-background to-background opacity-70"></div>
+              <div className="absolute left-1/2 top-1/2 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2">
+                  <div className="aspect-square animate-blob-spin">
+                      <div className="absolute right-0 top-0 h-2/3 w-2/3 rounded-full bg-primary/10 blur-3xl"></div>
+                      <div className="absolute bottom-0 left-0 h-full w-full rounded-full bg-accent/10 blur-3xl"></div>
+                      <div className="absolute -bottom-1/4 right-1/4 h-1/2 w-1/2 rounded-2xl bg-primary/5 blur-3xl"></div>
+                  </div>
+              </div>
+          </div>
           <div className="container mx-auto px-4 py-20 sm:py-28 lg:py-32">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
               <div className="space-y-6">

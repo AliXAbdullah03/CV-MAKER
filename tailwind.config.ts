@@ -91,10 +91,28 @@ export default {
             height: '0',
           },
         },
+        'blob-spin': {
+          '0%': {
+            transform: 'translate(-10%, 10%) rotate(0deg)',
+          },
+          '25%': {
+            transform: 'translate(10%, 10%) rotate(90deg)',
+          },
+          '50%': {
+            transform: 'translate(10%, -10%) rotate(180deg)',
+          },
+          '75%': {
+            transform: 'translate(-10%, -10%) rotate(270deg)',
+          },
+          '100%': {
+            transform: 'translate(-10%, 10%) rotate(360deg)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'blob-spin': 'blob-spin 30s linear infinite',
       },
     },
   },

@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, type ChangeEvent } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { type ResumeData } from '@/lib/types';
 import ResumeForm from '@/components/resume-form';
 import ResumePreview from '@/components/resume-preview';
 import KeywordSuggester from '@/components/keyword-suggester';
 import { Button } from '@/components/ui/button';
-import { MoveUpRight, Upload } from 'lucide-react';
+import { LayoutDashboard, MoveUpRight } from 'lucide-react';
 import Link from 'next/link';
 
 const initialResumeData: ResumeData = {
@@ -41,15 +41,6 @@ const initialResumeData: ResumeData = {
 export default function BuilderPage() {
   const [resumeData, setResumeData] = useState<ResumeData>(initialResumeData);
 
-  const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
-    // This is a placeholder for the resume parsing feature.
-    // In a real app, you would process the uploaded file.
-    const file = event.target.files?.[0];
-    if (file) {
-      alert(`File "${file.name}" uploaded. Parsing feature coming soon!`);
-    }
-  };
-
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-sm">
@@ -59,12 +50,11 @@ export default function BuilderPage() {
             <h1 className="font-headline text-2xl font-bold">CareerLeap</h1>
           </Link>
           <div className="flex items-center gap-4">
-             <Button variant="outline" asChild>
-              <label htmlFor="resume-upload" className="cursor-pointer">
-                <Upload className="mr-2" />
-                Upload Resume
-                <input id="resume-upload" type="file" className="sr-only" onChange={handleFileUpload} />
-              </label>
+            <Button asChild>
+              <Link href="/dashboard">
+                <LayoutDashboard className="mr-2 h-4 w-4" />
+                Dashboard
+              </Link>
             </Button>
           </div>
         </div>

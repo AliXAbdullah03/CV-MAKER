@@ -94,9 +94,9 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 via-background to-background opacity-70"></div>
               <div className="absolute left-1/2 top-1/2 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2">
                   <div className="aspect-square animate-blob-spin">
-                      <div className="absolute right-0 top-0 h-2/3 w-2/3 rounded-full bg-primary/10 blur-3xl"></div>
-                      <div className="absolute bottom-0 left-0 h-full w-full rounded-full bg-accent/10 blur-3xl"></div>
-                      <div className="absolute -bottom-1/4 right-1/4 h-1/2 w-1/2 rounded-2xl bg-primary/5 blur-3xl"></div>
+                      <div className="absolute right-0 top-0 h-2/3 w-2/3 rounded-full bg-primary/10 blur-3xl animate-blob-float [animation-delay:-6s]"></div>
+                      <div className="absolute bottom-0 left-0 h-full w-full rounded-full bg-accent/10 blur-3xl animate-blob-float"></div>
+                      <div className="absolute -bottom-1/4 right-1/4 h-1/2 w-1/2 rounded-2xl bg-primary/5 blur-3xl animate-blob-float [animation-delay:-3s]"></div>
                   </div>
               </div>
           </div>

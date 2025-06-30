@@ -91,14 +91,9 @@ export default function HomePage() {
       <main className="flex-1">
         <section className="relative overflow-hidden">
         <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden bg-background">
-              <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 via-background to-background opacity-70"></div>
-              <div className="absolute left-1/2 top-1/2 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2">
-                  <div className="aspect-square animate-blob-spin">
-                      <div className="absolute right-0 top-0 h-2/3 w-2/3 rounded-full bg-primary/10 blur-3xl animate-blob-float [animation-delay:-6s]"></div>
-                      <div className="absolute bottom-0 left-0 h-full w-full rounded-full bg-accent/10 blur-3xl animate-blob-float"></div>
-                      <div className="absolute -bottom-1/4 right-1/4 h-1/2 w-1/2 rounded-2xl bg-primary/5 blur-3xl animate-blob-float [animation-delay:-3s]"></div>
-                  </div>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 via-background to-background"></div>
+              <div className="absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-primary/20 blur-3xl animate-blob-float"></div>
+              <div className="absolute right-1/4 top-0 h-72 w-72 rounded-full bg-accent/20 blur-3xl animate-blob-float-2 [animation-delay:-4s]"></div>
           </div>
           <div className="container mx-auto px-4 py-20 sm:py-28 lg:py-32">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">

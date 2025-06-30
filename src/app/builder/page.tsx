@@ -72,8 +72,8 @@ export default function BuilderPage() {
 
       <main className="flex-1">
         <div className="container mx-auto p-4 md:p-8">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-9">
-            <div className="lg:col-span-5">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-7">
+            <div className="lg:col-span-3">
               <ResumeForm resumeData={resumeData} setResumeData={setResumeData} />
             </div>
             <div className="lg:col-span-4">

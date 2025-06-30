@@ -89,43 +89,46 @@ export default function HomePage() {
       </header>
 
       <main className="flex-1">
-        <section className="container mx-auto px-4 py-20 sm:py-28 lg:py-32">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-            <div className="space-y-6">
-              <h1 className="text-4xl font-bold tracking-tight font-headline sm:text-5xl lg:text-6xl">
-                The Smarter Way to Build Your Resume
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                Create a professional, ATS-friendly resume in minutes. CareerLeap's AI-powered tools help you stand out and get hired faster.
-              </p>
-              <Button size="lg" asChild>
-                <Link href="/login">
-                  Create My Resume Now <ArrowRight className="ml-2" />
-                </Link>
-              </Button>
-              <div className="flex items-center gap-4 pt-2">
-                <div className="flex -space-x-2">
-                  <Image src="https://placehold.co/40x40.png" width={40} height={40} alt="User avatar" className="rounded-full border-2 border-background" />
-                  <Image src="https://placehold.co/40x40.png" width={40} height={40} alt="User avatar" className="rounded-full border-2 border-background" />
-                  <Image src="https://placehold.co/40x40.png" width={40} height={40} alt="User avatar" className="rounded-full border-2 border-background" />
-                </div>
-                <div className="text-sm">
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 text-amber-400 fill-amber-400" />)}
+        <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary via-background to-background -z-10"></div>
+          <div className="container mx-auto px-4 py-20 sm:py-28 lg:py-32">
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+              <div className="space-y-6">
+                <h1 className="text-4xl font-bold tracking-tight font-headline sm:text-5xl lg:text-6xl">
+                  The Smarter Way to Build Your Resume
+                </h1>
+                <p className="text-lg text-muted-foreground">
+                  Create a professional, ATS-friendly resume in minutes. CareerLeap's AI-powered tools help you stand out and get hired faster.
+                </p>
+                <Button size="lg" asChild className="bg-gradient-primary text-primary-foreground hover:brightness-110 transition-all shadow-lg hover:shadow-primary/40">
+                  <Link href="/login">
+                    Create My Resume Now <ArrowRight className="ml-2" />
+                  </Link>
+                </Button>
+                <div className="flex items-center gap-4 pt-2">
+                  <div className="flex -space-x-2">
+                    <Image src="https://placehold.co/40x40.png" width={40} height={40} alt="User avatar" className="rounded-full border-2 border-background" />
+                    <Image src="https://placehold.co/40x40.png" width={40} height={40} alt="User avatar" className="rounded-full border-2 border-background" />
+                    <Image src="https://placehold.co/40x40.png" width={40} height={40} alt="User avatar" className="rounded-full border-2 border-background" />
                   </div>
-                  <p className="text-muted-foreground">Loved by 10,000+ job seekers.</p>
+                  <div className="text-sm">
+                    <div className="flex items-center gap-1">
+                      {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 text-amber-400 fill-amber-400" />)}
+                    </div>
+                    <p className="text-muted-foreground">Loved by 10,000+ job seekers.</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="flex justify-center">
-              <Image
-                src="https://placehold.co/600x450.png"
-                alt="An example of a resume being edited in the CareerLeap application"
-                width={600}
-                height={450}
-                className="rounded-lg shadow-2xl"
-                data-ai-hint="resume editor interface"
-              />
+              <div className="flex justify-center">
+                <Image
+                  src="https://placehold.co/600x450.png"
+                  alt="An example of a resume being edited in the CareerLeap application"
+                  width={600}
+                  height={450}
+                  className="rounded-lg shadow-2xl"
+                  data-ai-hint="resume editor interface"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -215,7 +218,7 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold font-headline sm:text-4xl">Ready to Leap Into Your Career?</h2>
             <p className="mt-4 text-lg text-muted-foreground">Start building your professional resume today for free.</p>
             <div className="mt-8">
-                <Button size="lg" asChild>
+                <Button size="lg" asChild className="bg-gradient-primary text-primary-foreground hover:brightness-110 transition-all shadow-lg hover:shadow-primary/40">
                     <Link href="/login">
                         Get Started for Free <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
